@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MD_Lab007__YandexMapKit</string>
     <string name="ScalingButtonText">Pochtamt</string>
+    <string name="ClearPointsOnMapButton">Clear</string>
 </resources>

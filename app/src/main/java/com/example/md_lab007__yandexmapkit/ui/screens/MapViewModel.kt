@@ -26,16 +26,33 @@ class MapViewModel() : ViewModel() {
     val route: State<Route> = _route
 
     fun moveToPredefinedLocation(cameraPositionState: CameraPositionState) {
-        cameraPositionState.move(CameraUpdateFactory.newLatLngZoom(pochtamtCords, 15f))
+        cameraPositionState.move(CameraUpdateFactory.newLatLngZoom(pochtamtCords, 18f))
     }
 
     fun addPoint(point: LatLng) {
         val current = _points.value
-        if (current.start == null) {
-            _points.value = current.copy(start = point)
-        } else if (current.end == null) {
-            _points.value = current.copy(end = point)
-        } else {
+
+        when {
+            current.start == null -> {
+                _points.value = current.copy(start = point)
+            }
+
+            current.end == null -> {
+                _points.value = current.copy(end = point)
+            }
+
+            else -> {
+                _points.value = current.copy(end = point)
+            }
+        }
+
+        if (current.start != null) {
+            buildRoute()
+        }
+    }
+
+    fun clearPoints() {
+        viewModelScope.launch {
             _points.value = Points()
             _route.value = Route()
         }
