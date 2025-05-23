@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.md_lab007__yandexmapkit"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.md_lab007__yandexmapkit"
@@ -49,6 +49,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.google.maps.services)
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
+    implementation(libs.accompanist.permissions)
+    implementation(libs.converter.gson)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
